@@ -170,7 +170,7 @@
     - services
 
 - name: reset | gather mounted kubelet dirs  # noqa 301
-  shell: set -o pipefail && mount | grep /var/lib/kubelet/ | awk '{print $3}' | tac
+  shell: set -o pipefail && mount | grep -e /var/lib/kubelet/ -e /home1/sys-var/lib/kubelet/ | awk '{print $3}' | tac
   args:
     executable: /bin/bash
     warn: false
