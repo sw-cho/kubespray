@@ -171,6 +171,7 @@
 
 - name: reset | gather mounted kubelet dirs  # noqa 301
   shell: set -o pipefail && mount | grep -e /var/lib/kubelet/ -e /home1/sys-var/lib/kubelet/ | awk '{print $3}' | tac
+  ignore_errors: true
   args:
     executable: /bin/bash
     warn: false
@@ -182,6 +183,7 @@
 
 - name: reset | unmount kubelet dirs  # noqa 301
   command: umount -f {{ item }}
+  ignore_errors: true
   with_items: "{{ mounted_dirs.stdout_lines }}"
   register: umount_dir
   when: mounted_dirs
