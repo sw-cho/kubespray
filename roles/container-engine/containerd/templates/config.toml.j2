@@ -27,6 +27,9 @@ oom_score = {{ containerd_oom_score }}
           runtime_type = "{{ runtime.type }}"
           runtime_engine = "{{ runtime.engine }}"
           runtime_root = "{{ runtime.root }}"
+{% if runtime.privileged_without_host_devices is defined %}
+          privileged_without_host_devices = {{ runtime.privileged_without_host_devices }}
+{% endif %}
           [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.{{ runtime.name }}.options]
 {% for key, value in runtime.options.items() %}
             {{ key }} = {{ value }}
