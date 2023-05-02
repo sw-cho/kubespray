@@ -325,8 +325,6 @@ etcd_kubeadm_enabled: false
 containerd_version: 1.4.9
 containerd_use_systemd_cgroup: true
 
-<<<<<<< HEAD
-=======
 # Docker options - this is relevant when container_manager == 'docker'
 docker_containerd_version: 1.4.12
 
@@ -339,7 +337,6 @@ docker_containerd_version: 1.4.12
 #   - 172.19.16.11:5000
 containerd_insecure_registries: []
 
->>>>>>> 4f27c763a (containerd insecure registry support (#8298))
 # Settings for containerized control plane (etcd/kubelet/secrets)
 # deployment type for legacy etcd mode
 etcd_deployment_type: docker
