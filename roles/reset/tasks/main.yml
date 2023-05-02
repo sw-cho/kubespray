@@ -221,7 +221,7 @@
   register: kube_ipvs0
 
 - name: reset | Remove kube-ipvs0
-  command: "ip link del kube-ipvs0"
+  command: "/sbin/ip link del kube-ipvs0"
   when:
     - kube_proxy_mode == 'ipvs'
     - kube_ipvs0.stat.exists
@@ -235,7 +235,7 @@
   register: nodelocaldns_device
 
 - name: reset | Remove nodelocaldns
-  command: "ip link del nodelocaldns"
+  command: "/sbin/ip link del nodelocaldns"
   when:
     - enable_nodelocaldns|default(false)|bool
     - nodelocaldns_device.stat.exists
