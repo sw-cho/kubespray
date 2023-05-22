@@ -1,2 +1,2 @@
 [Service]
-Environment={% if http_proxy is defined %}"HTTP_PROXY={{ http_proxy }}"{% endif %} {% if https_proxy is defined %}"HTTPS_PROXY={{ https_proxy }}"{% endif %} {% if no_proxy is defined %}"NO_PROXY={{ no_proxy }}"{% endif %}
+Environment={% if aisuite_proxy_env.http_proxy is defined %}"HTTP_PROXY={{ aisuite_proxy_env.http_proxy }}"{% endif %} {% if aisuite_proxy_env.https_proxy is defined %}"HTTPS_PROXY={{ aisuite_proxy_env.https_proxy }}"{% endif %} {% if aisuite_proxy_env.no_proxy is defined %}"NO_PROXY={{ aisuite_proxy_env.no_proxy }}"{% endif %}
