@@ -67,9 +67,7 @@
     dest: /etc/systemd/system/containerd.service.d/http-proxy.conf
     mode: 0644
   notify: restart containerd
-  when: aisuite_proxy_env is defined
-  tags:
-    - containerd-http-proxy
+  when: http_proxy is defined or https_proxy is defined
 
 - name: ensure containerd config directory
   file:
