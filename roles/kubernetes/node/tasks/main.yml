@@ -74,6 +74,8 @@
 
 # kube-proxy needs net.bridge.bridge-nf-call-iptables enabled when found if br_netfilter is not a module
 - name: Check if bridge-nf-call-iptables key exists
+  environment:
+    PATH: "{{ ansible_env.PATH}}:/sbin:/usr/sbin"
   command: "sysctl net.bridge.bridge-nf-call-iptables"
   failed_when: false
   changed_when: false
